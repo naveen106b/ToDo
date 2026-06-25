@@ -1,14 +1,14 @@
-// to establish mongodb database connection
-import mongoose, { mongo } from 'mongoose'
-import { connect } from 'node:http2'
+import mongoose from "mongoose";
 
-const connectDb = async ()=>{
-    try{
-        await mongoose.connect(process.env.MONGO_URI) //this is class structure not file struct
-        console.log("DB connected")
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
 
-    } catch(error){
-        console.error("db having error",error)
-    }
-}
-export default connectDb 
+    console.log("MongoDB Connected");
+  } catch (error) {
+    console.error("MongoDB Error:", error);
+    process.exit(1);
+  }
+};
+
+export default connectDB;
